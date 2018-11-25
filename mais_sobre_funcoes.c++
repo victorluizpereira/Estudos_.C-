@@ -34,6 +34,43 @@ int main(){
 
     cout << "O resultado da subtração é : " << result << endl; // emprimindo o resultado
 
+    // ==============================================================
+    //                       Função recursivas
+    // ==============================================================
+
+    int fatorial(int n); // declarando a função
+
+    int n; // criando a variável
+    cout << "Digite um número para ver o fatorial >> "; // pedindo ao usuário valor
+    cin >> n; // recebendo valor
+    cout << endl; // pulando linha
+
+    result = fatorial(n);  // chamando a função recursiva
+
+    cout << "O fatorial de [ " << n << " ] = " << result; // imprimindo o resultado
+
+    // =============================================================
+    //                      passando arrays
+    // =============================================================
+
+    void pass_array(int array[]);
+
+    int array[3] = {1, 2, 3};
+
+    pass_array(array);
+
+    // ============================================================
+    //              passando valores referenciados
+    // ============================================================
+
+    void refer(int *ref);
+
+    cout << endl;
+    int valor_ref = 20;
+    cout << "valor inicial do ref : " << valor_ref << endl;
+    refer(&valor_ref);
+    cout << "O valor apos referência a função é >> " << valor_ref << endl;
+
     return 0;
 }
 void rec_param(int b){
@@ -46,4 +83,24 @@ int oper_sub(int x, int y){
     subtracao = x - y;
 
     return subtracao;
+}
+int fatorial(int n){
+    if(n == 1){
+        return 1;   // condição se caso n = 1 retorna apenas 1
+    }
+    else{
+        return n * fatorial(n-1);  // efetua a operação
+    }
+}
+void pass_array(int array[]){
+    cout << endl;
+    cout << "O valor do vetor é .." << endl;
+    for(int i=0; i < 3; ++i){
+        cout << array[i] << endl;
+    }
+}
+void refer(int *ref){
+    for(int i=0; i < 50; ++i){
+        *ref += i + 15;
+    }
 }
